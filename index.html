@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PawGlow — Portafolio Antes/Después</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0c1220;--card:#0f1a2b;--muted:#A8B3C7;--magenta:#E01E8D;--cobalt:#0062A8;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35),0 2px 10px rgba(0,0,0,.2)}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(1200px 600px at 90% -10%,rgba(0,98,168,.25),transparent),radial-gradient(1000px 500px at -10% 0%,rgba(224,30,141,.15),transparent),var(--bg);color:#e9eef7}.wrap{max-width:1100px;margin:0 auto;padding:28px}.hero{display:grid;grid-template-columns:110px 1fr;gap:22px;align-items:center;background:linear-gradient(135deg,rgba(3,44,68,.9),rgba(107,15,71,.9));border-radius:26px;padding:30px;box-shadow:var(--shadow)}.owner-pic{width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.15);box-shadow:0 10px 20px rgba(0,0,0,.35)}.tag{display:inline-block;margin-top:8px;padding:6px 12px;border-radius:999px;font-size:.85rem;font-weight:600;letter-spacing:.4px;background:linear-gradient(90deg,var(--magenta),var(--cobalt))}.section-title{font-family:Poppins;font-weight:800;font-size:1.4rem;margin:44px 0 16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}.card{background:linear-gradient(180deg,rgba(15,26,43,.82),rgba(15,26,43,.65));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;cursor:pointer}.card-header{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,rgba(0,98,168,.22),rgba(224,30,141,.18));border-bottom:1px solid rgba(255,255,255,.06)}.card-title{font-weight:700;font-family:Poppins;margin:0}.chip{font-size:.75rem;padding:4px 10px;border-radius:999px;background:rgba(224,30,141,.12);border:1px solid rgba(224,30,141,.35)}.compare{position:relative;aspect-ratio:4/3;overflow:hidden}.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.compare .after{clip-path:inset(0 0 0 50%)}.slider{appearance:none;position:absolute;inset:0;width:100%;height:100%;background:transparent;outline:none;cursor:ew-resize}.bar{position:absolute;top:0;bottom:0;width:2px;left:50%;transform:translateX(-1px);background:linear-gradient(var(--magenta),var(--cobalt));box-shadow:0 0 0 2px rgba(0,0,0,.2)}.knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--magenta),#6B0F47);border:3px solid rgba(255,255,255,.65);box-shadow:var(--shadow)}.meta{padding:14px 18px;color:var(--muted);font-size:.95rem}.tool-badges{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 16px}.tool{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(224,30,141,.10);font-size:.85rem}.tool .i{font-size:1rem}.modal{position:fixed;inset:0;background:rgba(4,8,16,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:40}.modal.open{display:flex}.modal-card{background:var(--card);border-radius:20px;max-width:980px;width:100%;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);overflow:hidden}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(90deg,rgba(0,98,168,.22),rgba(224,30,141,.18))}.modal-body{padding:20px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.section-sub{margin:16px 0 8px;font-weight:700;font-family:Poppins}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:10px}.gallery img{width:100%;height:100px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.08)}@media (max-width:800px){.detail-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Foto del propietario" class="owner-pic" />
+      <div>
+        <h1 style="margin:0;font-family:Poppins;font-weight:800">PawGlow <span style="font-weight:600; color:#cde1ff">por Alex Rivera</span></h1>
+        <div class="sub" style="color:#A8B3C7;margin-top:6px">Transformaciones Antes/Después para peludos con alma de protagonista ✨</div>
+        <span class="tag">Grooming • Estilo • Mimos fotogénicos</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Galería destacada</div>
+      <div class="grid" id="cardsGrid"></div>
+    </section>
+
+    <section>
+      <div class="section-title">Imagen del grupo</div>
+      <div class="group" style="display:grid;place-items:center;background:linear-gradient(180deg,rgba(0,98,168,.14),rgba(224,30,141,.10));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px">
+        <p style="margin:0 0 10px;color:#d7dff0">Agrega la foto del grupo (assets/group.jpg).</p>
+        <img id="groupImage" alt="Foto de grupo" src="assets/group.jpg" style="max-width:100%;border-radius:14px;box-shadow:var(--shadow)"/>
+      </div>
+    </section>
+
+    <footer style="margin-top:60px;padding:28px;text-align:center;color:#A8B3C7">
+      © <span id="year"></span> PawGlow • Construido con amor, rodillos quitapelusa y tu paleta vibrante.
+    </footer>
+  </div>
+
+  <div class="modal" id="petModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="modalTitle">Detalle</strong>
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toolIcon = (t) => {
+      const s = (t||'').toLowerCase();
+      if (s.includes('shampoo')) return '🫧';
+      if (s.includes('acondicion')) return '🫧';
+      if (s.includes('keratina')) return '🧴';
+      if (s.includes('secadora') || s.includes('sopladora')) return '💨';
+      if (s.includes('cortador de uñas')) return '🧰';
+      if (s.includes('tijera')) return '✂️';
+      if (s.includes('máquina') || s.includes('maquina')) return '🔌';
+      if (s.includes('peine')) return '🪮';
+      if (s.includes('cepillo')) return '🧹';
+      if (s.includes('algodón')) return '💊';
+      if (s.includes('limpiador de oídos') || s.includes('oídos') || s.includes('oidos')) return '🧼';
+      if (s.includes('talco hemost')) return '🧴';
+      if (s.includes('pinza hemost')) return '🔧';
+      if (s.includes('bálsamo') || s.includes('balsamo')) return '🧴';
+      if (s.includes('perfume')) return '🌸';
+      if (s.includes('bozal')) return '🦴';
+      if (s.includes('papel aluminio')) return '🧻';
+      if (s.includes('tinte')) return '🎨';
+      if (s.includes('paño') || s.includes('pañito')) return '🧽';
+      if (s.includes('hierba') || s.includes('lavanda') || s.includes('menta') || s.includes('eucalipto') || s.includes('alpiste') || s.includes('esencia')) return '🌿';
+      if (s.includes('accesorio')) return '🎀';
+      return '🧩';
+    };
+
+    function makeToolsBadges(tools) {
+      if (!tools || !tools.length) return '';
+      return '<div class="tool-badges">' + tools.slice(0,10).map(t => '<span class="tool"><span class="i">'+toolIcon(t)+'</span>'+t+'</span>').join('') + '</div>';
+    }
+
+    function wireCompare(root) {
+      root.querySelectorAll('[data-compare]').forEach(c => {
+        const after = c.querySelector('.after');
+        const slider = c.querySelector('.slider');
+        const bar = c.querySelector('.bar');
+        const knob = c.querySelector('.knob');
+        if (!after || !slider || !bar || !knob) return;
+        const setClip = pct => { after.style.clipPath = 'inset(0 0 0 '+pct+'%)'; bar.style.left = pct + '%'; knob.style.left = pct + '%'; };
+        slider.addEventListener('input', e => setClip(e.target.value));
+        setClip(slider.value || 50);
+      });
+    }
+
+    const modal = document.getElementById('petModal');
+    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.getElementById('modalClose');
+    function openModal(index) {
+      const tmpl = document.getElementById('pet-detail-' + index);
+      if (!tmpl) return;
+      modalBody.innerHTML = tmpl.innerHTML;
+      modalTitle.textContent = modalBody.querySelector('h3')?.textContent || 'Detalle';
+      modal.classList.add('open');
+      wireCompare(modalBody);
+    }
+    function closeModal() { modal.classList.remove('open'); modalBody.innerHTML=''; }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    fetch('pets.json').then(r => r.json()).then(pets => {
+      const grid = document.getElementById('cardsGrid');
+      pets.forEach((p, i) => {
+        const index = i + 1;
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.dataset.openDetail = '';
+        card.dataset.petIndex = index;
+        card.innerHTML = `
+          <div class="card-header">
+            <h3 class="card-title">${p.name}</h3>
+            <span class="chip">${(p.extras && p.extras.length) ? (p.extras.length + 2) + ' fotos' : 'Antes/Después'}</span>
+          </div>
+          <div class="compare" data-compare>
+            <img class="before" src="${p.before}" alt="${p.name} antes"/>
+            <img class="after" src="${p.after}" alt="${p.name} después"/>
+            <input class="slider" type="range" min="0" max="100" value="50" aria-label="Arrastra para ver el después"/>
+            <div class="bar" aria-hidden="true"></div>
+            <div class="knob" aria-hidden="true"></div>
+          </div>
+          <div class="meta">${p.description || ''}</div>
+          ${makeToolsBadges(p.tools)}
+        `;
+        grid.appendChild(card);
+
+        const tmpl = document.createElement('template');
+        tmpl.id = 'pet-detail-' + index;
+        const extras = (p.extras || []).map(ph => `<img src="${ph}" alt="extra ${p.name}"/>`).join('');
+        tmpl.innerHTML = `
+          <div class="detail-grid">
+            <div>
+              <h3>${p.name}</h3>
+              <div class="compare" data-compare>
+                <img class="before" src="${p.before}" alt="${p.name} antes"/>
+                <img class="after" src="${p.after}" alt="${p.name} después"/>
+                <input class="slider" type="range" min="0" max="100" value="50" aria-label="Arrastra para ver el después"/>
+                <div class="bar" aria-hidden="true"></div>
+                <div class="knob" aria-hidden="true"></div>
+              </div>
+              ${extras ? '<div class="section-sub">Más fotos</div><div class="gallery">' + extras + '</div>' : ''}
+            </div>
+            <div>
+              <div class="section-sub">Descripción</div>
+              <div>${p.description || '—'}</div>
+              <div class="section-sub">Procedimiento</div>
+              <div>${p.procedure || '—'}</div>
+              <div class="section-sub">Herramientas</div>
+              ${makeToolsBadges(p.tools)}
+            </div>
+          </div>`;
+        document.body.appendChild(tmpl);
+      });
+
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest('[data-open-detail]');
+        if (card) openModal(card.dataset.petIndex);
+      });
+
+      wireCompare(document);
+    });
+  </script>
+</body>
+</html>
