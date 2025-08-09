@@ -1,7 +1,7 @@
 [
   {
     "name": "Chispita",
-    "description": "Spa relajante con aromaterapia \nSe envuelve en un pañito las hierbas y el alpiste sujetando con pabilo, se calienta en el microondas por 3 min , se pasa sobre el perro haciéndole un ligero masaje por todo el cuerpo . Esta técnica ayuda al perro a relajarse y libera el estrés.\nSi se quiere reutilizar, se calienta por 1 min",
+    "description": "Se envuelve en un pañito las hierbas y el alpiste sujetando con pabilo, se calienta en el microondas por 3 min , se pasa sobre el perro haciéndole un ligero masaje por todo el cuerpo . Esta técnica ayuda al perro a relajarse y libera el estrés.\nSi se quiere reutilizar, se calienta por 1 min",
     "procedure": "Spa relajante con aromaterapia",
     "tools": [
       "Shampoo",
@@ -23,8 +23,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/chispita/antes.jpeg",
-    "after": "assets/chispita/despues.jpeg",
+    "before": "assets/chispita/antes.JPEG",
+    "after": "assets/chispita/despues.JPEG",
     "extras": []
   },
   {
@@ -76,8 +76,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/elly/antes.jpeg",
-    "after": "assets/elly/despues.jpeg",
+    "before": "assets/elly/antes.JPEG",
+    "after": "assets/elly/despues.JPEG",
     "extras": []
   },
   {
@@ -105,8 +105,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/ziom/antes.jpeg",
-    "after": "assets/ziom/despues.jpeg",
+    "before": "assets/ziom/antes.JPEG",
+    "after": "assets/ziom/despues.JPEG",
     "extras": []
   },
   {
@@ -247,8 +247,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/ziom2/antes.jpeg",
-    "after": "assets/ziom2/despues.jpeg",
+    "before": "assets/ziom2/antes.JPEG",
+    "after": "assets/ziom2/despues.JPEG",
     "extras": []
   },
   {
@@ -275,14 +275,14 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/bolita/antes.jpg",
-    "after": "assets/bolita/despues.jpg",
+    "before": "assets/bolita2/antes.jpg",
+    "after": "assets/bolita2/despues.jpg",
     "extras": []
   },
   {
     "name": "Elly",
-    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavar, secar y cepillar  la cabeza, se repasa con la maquina el rape de todo el cuerpo y se define la carita .\nLa cuchilla que se utilizó fue la #10",
-    "procedure": "Se realiza un pre corte rapando…",
+    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavar, secar y cepillar la cabeza, se repasa con la maquina el rape de todo el cuerpo y se define la carita .\nLa cuchilla que se utilizó fue la #10",
+    "procedure": "Rapado",
     "tools": [
       "Shampoo",
       "Acondicionador",
@@ -305,14 +305,14 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/elly2/antes.jpeg",
-    "after": "assets/elly2/despues.jpeg",
+    "before": "assets/elly2/antes.JPEG",
+    "after": "assets/elly2/despues.JPEG",
     "extras": []
   },
   {
     "name": "Scarlett",
     "description": "Se realiza un pre-corte rapando el lomo del perro, se lleva a lavar, secar y cepillar, se repasa con la maquina el rape de todo el cuerpo y se define la carita.\nSe recortan las cejas y bigote. Se dan forma a las orejas con tijera eliminando el pelo sobrante que quedo del rape.\nLa cuchilla que se utilizó fue la #5",
-    "procedure": "Se realiza un pre-corte rapando el…",
+    "procedure": "Rapado",
     "tools": [
       "Shampoo Matizante",
       "Acondicionador",
@@ -335,14 +335,14 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/scarlett/antes.jpeg",
-    "after": "assets/scarlett/despues.jpeg",
+    "before": "assets/scarlett/antes.JPEG",
+    "after": "assets/scarlett/despues.JPEG",
     "extras": []
   },
   {
     "name": "Ruffus",
     "description": "Se realiza un pre-corte rapando el lomo del perro, se lleva a lavar, secar y cepillar, se repasa con la maquina el rape de todo el cuerpo y se define la carita.\nSe recortan las cejas y bigote. Se dan forma a las orejas con tijera eliminando el pelo sobrante que quedo del rape.\nLa cuchilla que se utilizó fue la #5",
-    "procedure": "Se realiza un pre-corte rapando el…",
+    "procedure": "Rapado",
     "tools": [
       "Shampoo Matizante",
       "Acondicionador",
@@ -365,8 +365,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/ruffus/antes.jpeg",
-    "after": "assets/ruffus/despues.jpeg",
+    "before": "assets/ruffus/antes.JPEG",
+    "after": "assets/ruffus/despues.JPEG",
     "extras": []
   },
   {
@@ -393,8 +393,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/kiara/antes.jpeg",
-    "after": "assets/kiara/despues.jpeg",
+    "before": "assets/kiara/antes.JPEG",
+    "after": "assets/kiara/despues.JPEG",
     "extras": []
   },
   {
@@ -423,8 +423,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/nala/antes.jpeg",
-    "after": "assets/nala/despues.jpeg",
+    "before": "assets/nala/antes.JPEG",
+    "after": "assets/nala/despues.JPEG",
     "extras": []
   },
   {
@@ -454,8 +454,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/trebol/antes.jpeg",
-    "after": "assets/trebol/despues.jpjpegg",
+    "before": "assets/trebol/antes.JPEG",
+    "after": "assets/trebol/despues.JPEG",
     "extras": []
   }
 ]
