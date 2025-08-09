@@ -59,66 +59,70 @@
     .card-header{display:flex;flex-direction:column;gap:6px;padding:14px 14px 12px;background:linear-gradient(90deg,rgba(0,98,168,.20),rgba(224,30,141,.18));border-bottom:1px solid rgba(255,255,255,.06)}
     .card-title{margin:0;font:700 1.06rem/1.1 Poppins}
     .card-proc{font-size:.9rem;color:#cfe0ff}
+
     /* ===== Tarjetas (galería principal) - Peek Antes/Después ===== */
-.thumb{
-  position:relative;
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#0a1225;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.thumb img{
-  position:absolute;
-  inset:-4% -2% -4% -2%;
-  width:104%; height:108%;
-  object-fit:cover;
-  object-position:center 42%;
-  transform:translateZ(0);
-  transition:opacity .28s ease;
-}
-.thumb .after{ opacity:1; z-index:2; }
-.thumb .before{ opacity:0; z-index:1; }
+    .thumb{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:#0a1225;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      pointer-events: none; /* let overlay receive clicks */
+    }
+    .thumb img{
+      position:absolute;
+      inset:-4% -2% -4% -2%;
+      width:104%; height:108%;
+      object-fit:cover;
+      object-position:center 42%;
+      transform:translateZ(0);
+      transition:opacity .28s ease;
+    }
+    .thumb .after{ opacity:1; z-index:2; }
+    .thumb .before{ opacity:0; z-index:1; }
 
-/* Al hacer hover/focus visible: animación de vistazo "antes" y regreso a "después" */
-@media (hover:hover){
-  .card:hover .thumb .before,
-  .card:focus-within .thumb .before{
-    animation: peekBefore 1200ms ease-in-out forwards;
-  }
-}
-@keyframes peekBefore{
-  0%{ opacity:0 }
-  30%{ opacity:1 }    /* muestra el ANTES */
-  100%{ opacity:0 }   /* vuelve al DESPUÉS */
-}
+    @media (hover:hover){
+      .card:hover .thumb .before,
+      .card:focus-within .thumb .before{
+        animation: peekBefore 1200ms ease-in-out forwards;
+      }
+    }
+    @keyframes peekBefore{
+      0%{ opacity:0 }
+      30%{ opacity:1 }
+      100%{ opacity:0 }
+    }
+    .thumb .pill{
+      position:absolute; right:10px; top:10px;
+      padding:6px 10px; border-radius:999px;
+      font-weight:700; font-size:.75rem;
+      color:#fff;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      border:1px solid rgba(255,255,255,.18);
+      opacity:.95;
+    }
 
-/* Pill de estado en esquina */
-.thumb .pill{
-  position:absolute; right:10px; top:10px;
-  padding:6px 10px; border-radius:999px;
-  font-weight:700; font-size:.75rem;
-  color:#fff;
-  background:linear-gradient(90deg,var(--brand),var(--brand2));
-  border:1px solid rgba(255,255,255,.18);
-  opacity:.95;
-}
+    /* ===== Detalle (modal) ===== */
+    .compare{
+      position:relative; aspect-ratio:4/3; overflow:hidden; background:#0a1225;
+    }
+    .compare img{
+      position:absolute; inset:-4% -2% -4% -2%;
+      width:104%; height:108%;
+      object-fit:cover; object-position:center 42%;
+    }
+    .compare .after{ clip-path:inset(0 0 0 50%) }
+    .slider{ appearance:none; position:absolute; inset:0; width:100%; height:100%; background:transparent; cursor:ew-resize; outline:none }
+    .bar{ position:absolute; top:0; bottom:0; width:2px; left:50%; transform:translateX(-1px); background:linear-gradient(var(--brand),var(--brand2)) }
+    .knob{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(255,255,255,.55)); border:3px solid rgba(255,255,255,.7); box-shadow:0 12px 32px rgba(0,0,0,.35) }
+    .open-detail{
+      position:absolute;
+      inset:0;
+      display:block;
+      z-index:5;
+    }
 
-/* ===== Detalle (modal) sigue usando compare/slider ===== */
-.compare{
-  position:relative; aspect-ratio:4/3; overflow:hidden; background:#0a1225;
-}
-.compare img{
-  position:absolute; inset:-4% -2% -4% -2%;
-  width:104%; height:108%;
-  object-fit:cover; object-position:center 42%;
-}
-.compare .after{ clip-path:inset(0 0 0 50%) }
-.slider{ appearance:none; position:absolute; inset:0; width:100%; height:100%; background:transparent; cursor:ew-resize; outline:none }
-.bar{ position:absolute; top:0; bottom:0; width:2px; left:50%; transform:translateX(-1px); background:linear-gradient(var(--brand),var(--brand2)) }
-.knob{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(255,255,255,.55)); border:3px solid rgba(255,255,255,.7); box-shadow:0 12px 32px rgba(0,0,0,.35) }
-.open-detail{position:absolute;inset:0}
-
-    /* Modal */
+    /* Modal chrome */
     .modal{position:fixed;inset:0;display:none;place-items:center;padding:28px;z-index:40}
     .modal.open{display:grid}
     .modal::before{content:"";position:absolute;inset:0;background:rgba(6,10,20,.72);backdrop-filter:blur(6px)}
@@ -136,13 +140,13 @@
     .tool .i{font-size:1rem}
     .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:10px}
     .gallery img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  object-position:center 42%;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.08)
-}
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      object-position:center 42%;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08)
+    }
     @media (max-width:960px){.detail-grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -181,7 +185,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mapea iconos para herramientas (se mantienen desde pets.json)
     const toolIcon = (t='')=>{
       const s=t.toLowerCase();
       if(s.includes('shampoo'))return'🫧';
@@ -222,7 +225,6 @@
       });
     }
 
-    // Modal
     const modal=document.getElementById('petModal');
     const modalBody=document.getElementById('modalBody');
     const modalTitle=document.getElementById('modalTitle');
@@ -241,7 +243,6 @@
     modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
     window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('open')) closeModal(); });
 
-    // Cargar desde pets.json (asegúrate de servir por http:// localhost para evitar CORS con file://)
     fetch('pets.json')
       .then(r=>r.json())
       .then(pets=>renderPets(pets))
@@ -252,30 +253,24 @@
       grid.innerHTML='';
       pets.forEach((p,i)=>{
         const index=i+1;
-        // Si el JSON trae procedure largo, recórtalo visualmente (primer oración/6-8 palabras)
         const shortProc=(p.procedure||'').split(/[.\n\r]/)[0].split(' ').slice(0,8).join(' ') + ((p.procedure||'').split(' ').length>8?'…':'');
-
-        // Card (solo nombre + proc)
         const card=document.createElement('article');
         card.className='card';
+        card.dataset.index=index;
         card.innerHTML = `
-  <div class="card-header">
-    <h3 class="card-title">${p.name || 'Sin nombre'}</h3>
-    <div class="card-proc">${shortProc || '—'}</div>
-  </div>
-
-  <!-- Vista limpia con "peek" al pasar el mouse -->
-  <div class="thumb" aria-label="Vista previa de ${p.name}">
-    <img class="after" src="${p.after}" alt="${p.name} después">
-    <img class="before" src="${p.before}" alt="${p.name} antes">
-    <span class="pill">Antes/Después</span>
-  </div>
-
-  <a href="#" class="open-detail" data-open-detail data-index="${index}" aria-label="Ver detalle de ${p.name}" tabindex="0"></a>
-`;
+          <div class="card-header">
+            <h3 class="card-title">${p.name || 'Sin nombre'}</h3>
+            <div class="card-proc">${shortProc || '—'}</div>
+          </div>
+          <div class="thumb" aria-label="Vista previa de ${p.name}">
+            <img class="after" src="${p.after}" alt="${p.name} después">
+            <img class="before" src="${p.before}" alt="${p.name} antes">
+            <span class="pill">Antes/Después</span>
+          </div>
+          <a href="#" class="open-detail" data-open-detail data-index="${index}" aria-label="Ver detalle de ${p.name}" tabindex="0"></a>
+        `;
         grid.appendChild(card);
 
-        // Template de detalle (nombre SOLO en el header del modal)
         const tmpl=document.createElement('template');
         tmpl.id='pet-detail-'+index;
         tmpl.setAttribute('data-title', p.name||'Detalle');
@@ -305,15 +300,24 @@
           </div>
         `;
         document.body.appendChild(tmpl);
+
+        /* Opcional: enfoque por-perro desde JSON (focusY: 0–100) */
+        const focusY = (p.focusY ?? 42);
+        card.querySelectorAll('.thumb img').forEach(img=>{
+          img.style.objectPosition = `center ${focusY}%`;
+        });
+        tmpl.content.querySelectorAll('.compare img').forEach(img=>{
+          img.style.objectPosition = `center ${focusY}%`;
+        });
       });
 
-      // abrir detalle (delegado)
-      document.addEventListener('click',e=>{
-        const link=e.target.closest('[data-open-detail]');
-        if(link){ e.preventDefault(); openModal(link.getAttribute('data-index')); }
+      /* Delegated click: hace clic en cualquier parte de la card */
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (!card) return;
+        const idx = card.dataset.index || card.querySelector('[data-open-detail]')?.dataset.index;
+        if (idx) { e.preventDefault(); openModal(idx); }
       });
-
-      wireCompare(document);
     }
   </script>
 </body>

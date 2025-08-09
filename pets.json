@@ -275,8 +275,8 @@
       "Perfume",
       "Accesorio"
     ],
-    "before": "assets/bolita2/antes.jpg",
-    "after": "assets/bolita2/despues.jpg",
+    "before": "assets/bolita2/antes.JPEG",
+    "after": "assets/bolita2/despues.JPEG",
     "extras": []
   },
   {
