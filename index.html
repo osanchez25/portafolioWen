@@ -78,14 +78,16 @@
       ?'<div class="tool-badges">'+tools.map(t=>`<span class="tool"><span class="i">${toolIcon(t)}</span>${t}</span>`).join('')+'</div>'
       :'';
 
-    function wireCompare(root){
-      root.querySelectorAll('[data-compare]').forEach(c=>{
-        const after=c.querySelector('.after'), slider=c.querySelector('.slider'),
-              bar=c.querySelector('.bar'), knob=c.querySelector('.knob');
-        if(!after||!slider||!bar||!knob) return;
-        const setClip=p=>{after.style.clipPath=`inset(0 0 0 ${p}%)`; bar.style.left=p+'%'; knob.style.left=p+'%';};
-        slider.addEventListener('input',e=>setClip(e.target.value));
-        setClip(slider.value||50);
+    function wireCarousel(root){
+      root.querySelectorAll('[data-carousel]').forEach(c=>{
+        const track=c.querySelector('.track'), prev=c.querySelector('.prev'), next=c.querySelector('.next');
+        const imgs=track?track.querySelectorAll('img'):[];
+        if(!track||!prev||!next||imgs.length===0) return;
+        let idx=0;
+        const update=()=>{ track.style.transform=`translateX(-${idx*100}%)`; };
+        prev.addEventListener('click',()=>{ idx=(idx-1+imgs.length)%imgs.length; update(); });
+        next.addEventListener('click',()=>{ idx=(idx+1)%imgs.length; update(); });
+        update();
       });
     }
 
@@ -100,7 +102,7 @@
       modalTitle.textContent=tmpl.getAttribute('data-title')||'Detalle';
       modal.classList.add('open');
       document.body.classList.add('no-scroll'); // lock background
-      wireCompare(modalBody);
+      wireCarousel(modalBody);
       closeBtn.focus();
     }
     function closeModal(){
@@ -121,20 +123,19 @@
       const grid=document.getElementById('cardsGrid');
       grid.innerHTML='';
       pets.forEach((p,i)=>{
-        const index=i+1;
+        const index=p.id || (i+1);
         const shortProc=(p.procedure||'').split(/[.\n\r]/)[0].split(' ').slice(0,8).join(' ') + ((p.procedure||'').split(' ').length>8?'…':'');
         const card=document.createElement('article');
         card.className='card';
         card.dataset.index=index;
+        const images=(p.extras||[]).filter(Boolean);
         card.innerHTML = `
           <div class="card-header">
             <h3 class="card-title">${p.name || 'Sin nombre'}</h3>
             <div class="card-proc">${shortProc || '—'}</div>
           </div>
           <div class="thumb" aria-label="Vista previa de ${p.name}">
-            <img class="after" src="${p.after}" alt="${p.name} después" loading="lazy">
-            <img class="before" src="${p.before}" alt="${p.name} antes" loading="lazy">
-            <span class="pill">Antes/Después</span>
+            <img src="${images[0]||''}" alt="${p.name}" loading="lazy">
           </div>
           <a href="#" class="open-detail" data-open-detail data-index="${index}" aria-label="Ver detalle de ${p.name}" tabindex="0"></a>
         `;
@@ -143,18 +144,15 @@
         const tmpl=document.createElement('template');
         tmpl.id='pet-detail-'+index;
         tmpl.setAttribute('data-title', p.name||'Detalle');
-        const extras=(p.extras||[]).map(ph=>`<img src="${ph}" alt="Foto extra de ${p.name}" loading="lazy">`).join('');
+        const imgHtml=images.map(ph=>`<img src="${ph}" alt="Foto de ${p.name}" loading="lazy">`).join('');
         tmpl.innerHTML=`
           <div class="detail-grid">
             <div>
-              <div class="compare" data-compare style="margin-bottom:14px" aria-label="Comparar antes y después de ${p.name}">
-                <img class="before" src="${p.before}" alt="${p.name} antes" loading="lazy">
-                <img class="after"  src="${p.after}"  alt="${p.name} después" loading="lazy">
-                <input class="slider" type="range" min="0" max="100" value="50" aria-label="Arrastra para ver el después">
-                <div class="bar" aria-hidden="true"></div>
-                <div class="knob" aria-hidden="true"></div>
+              <div class="carousel" data-carousel>
+                <button class="prev" aria-label="Foto anterior">‹</button>
+                <div class="track">${imgHtml}</div>
+                <button class="next" aria-label="Foto siguiente">›</button>
               </div>
-              ${extras ? '<div class="section-sub">Más fotos</div><div class="gallery">'+extras+'</div>' : ''}
             </div>
             <div>
               <div class="section-sub">Procedimiento</div>
@@ -175,7 +173,7 @@
         card.querySelectorAll('.thumb img').forEach(img=>{
           img.style.objectPosition = `center ${focusY}%`;
         });
-        tmpl.content.querySelectorAll('.compare img').forEach(img=>{
+        tmpl.content.querySelectorAll('.carousel img').forEach(img=>{
           img.style.objectPosition = `center ${focusY}%`;
         });
       });
