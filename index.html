@@ -120,19 +120,19 @@
       .catch(err=>console.error('Error cargando pets.json',err));
 
     function renderPets(pets){
+      pets.sort((a,b)=>(a.id ?? 0)-(b.id ?? 0));
       const grid=document.getElementById('cardsGrid');
       grid.innerHTML='';
       pets.forEach((p,i)=>{
         const index=p.id || (i+1);
-        const shortProc=(p.procedure||'').split(/[.\n\r]/)[0].split(' ').slice(0,8).join(' ') + ((p.procedure||'').split(' ').length>8?'…':'');
         const card=document.createElement('article');
         card.className='card';
         card.dataset.index=index;
         const images=(p.extras||[]).filter(Boolean);
         card.innerHTML = `
           <div class="card-header">
-            <h3 class="card-title">${p.name || 'Sin nombre'}</h3>
-            <div class="card-proc">${shortProc || '—'}</div>
+            <h3 class="card-title">${p.title || 'Sin título'}</h3>
+            <div class="card-proc">${p.name || 'Sin nombre'}</div>
           </div>
           <div class="thumb" aria-label="Vista previa de ${p.name}">
             <img src="${images[0]||''}" alt="${p.name}" loading="lazy">
@@ -156,7 +156,7 @@
             </div>
             <div>
               <div class="section-sub">Procedimiento</div>
-              <div class="text-block">${p.procedure||'—'}</div>
+              <div class="text-block">${p.title || '—'}</div>
 
               <div class="section-sub">Descripción</div>
               <div class="text-block">${p.description||'—'}</div>
