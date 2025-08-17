@@ -106,6 +106,10 @@ h1{margin:0;font:800 28px/1.1 Poppins,Inter,sans-serif;letter-spacing:.2px}
 .img-modal img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-out;}
 .img-modal-close{position:absolute;top:18px;right:18px;background:rgba(0,0,0,.5);color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:1.2rem;cursor:pointer;}
 .img-modal-close:focus{box-shadow:var(--ring);outline:none}
+.img-modal-prev,.img-modal-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:1.5rem;cursor:pointer;}
+.img-modal-prev{left:18px;}
+.img-modal-next{right:18px;}
+.img-modal-prev:focus,.img-modal-next:focus{box-shadow:var(--ring);outline:none}
 
 /* ===== Mobile tweaks ===== */
 @media (max-width:820px){
@@ -126,8 +130,10 @@ h1{margin:0;font:800 28px/1.1 Poppins,Inter,sans-serif;letter-spacing:.2px}
     .detail-grid{grid-template-columns:1fr;gap:16px}
     .img-modal{padding:10px}
     .img-modal-close{top:10px;right:10px}
+    .img-modal-prev{left:10px}
+    .img-modal-next{right:10px}
   /* no hover animation on touch */
-}
+  }
 
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion:reduce){
