@@ -46,6 +46,12 @@
     </div>
   </div>
 
+  <!-- Visor de imagen a tamaño completo -->
+  <div class="img-modal" id="imgModal" role="dialog" aria-modal="true">
+    <button class="img-modal-close" id="imgModalClose" aria-label="Cerrar imagen">✕</button>
+    <img id="imgModalImg" alt="" />
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -87,6 +93,12 @@
         const update=()=>{ track.style.transform=`translateX(-${idx*100}%)`; };
         prev.addEventListener('click',()=>{ idx=(idx-1+imgs.length)%imgs.length; update(); });
         next.addEventListener('click',()=>{ idx=(idx+1)%imgs.length; update(); });
+        imgs.forEach(img=>{
+          img.tabIndex=0;
+          img.setAttribute('role','button');
+          img.addEventListener('click',()=>openImgModal(img.src,img.alt));
+          img.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' ') openImgModal(img.src,img.alt); });
+        });
         update();
       });
     }
@@ -95,6 +107,10 @@
     const modalBody=document.getElementById('modalBody');
     const modalTitle=document.getElementById('modalTitle');
     const closeBtn=document.getElementById('modalClose');
+
+    const imgModal=document.getElementById('imgModal');
+    const imgModalImg=document.getElementById('imgModalImg');
+    const imgModalClose=document.getElementById('imgModalClose');
     function openModal(idx){
       const tmpl=document.getElementById('pet-detail-'+idx);
       if(!tmpl) return;
@@ -112,7 +128,28 @@
     }
     closeBtn.addEventListener('click',closeModal);
     modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
-    window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('open')) closeModal(); });
+
+    function openImgModal(src,alt=''){
+      imgModalImg.src=src;
+      imgModalImg.alt=alt;
+      imgModal.classList.add('open');
+      document.body.classList.add('no-scroll');
+      imgModalClose.focus();
+    }
+    function closeImgModal(){
+      imgModal.classList.remove('open');
+      imgModalImg.src='';
+      if(!modal.classList.contains('open')) document.body.classList.remove('no-scroll');
+    }
+    imgModalClose.addEventListener('click',closeImgModal);
+    imgModal.addEventListener('click',e=>{ if(e.target===imgModal||e.target===imgModalImg) closeImgModal(); });
+
+    window.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        if(imgModal.classList.contains('open')) closeImgModal();
+        else if(modal.classList.contains('open')) closeModal();
+      }
+    });
 
     fetch('pets.json')
       .then(r=>r.json())
