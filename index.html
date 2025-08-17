@@ -49,7 +49,9 @@
   <!-- Visor de imagen a tamaño completo -->
   <div class="img-modal" id="imgModal" role="dialog" aria-modal="true">
     <button class="img-modal-close" id="imgModalClose" aria-label="Cerrar imagen">✕</button>
+    <button class="img-modal-prev" id="imgModalPrev" aria-label="Imagen anterior">‹</button>
     <img id="imgModalImg" alt="" />
+    <button class="img-modal-next" id="imgModalNext" aria-label="Imagen siguiente">›</button>
   </div>
 
   <script>
@@ -93,11 +95,11 @@
         const update=()=>{ track.style.transform=`translateX(-${idx*100}%)`; };
         prev.addEventListener('click',()=>{ idx=(idx-1+imgs.length)%imgs.length; update(); });
         next.addEventListener('click',()=>{ idx=(idx+1)%imgs.length; update(); });
-        imgs.forEach(img=>{
+        imgs.forEach((img,i)=>{
           img.tabIndex=0;
           img.setAttribute('role','button');
-          img.addEventListener('click',()=>openImgModal(img.src,img.alt));
-          img.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' ') openImgModal(img.src,img.alt); });
+          img.addEventListener('click',()=>openImgModal(imgs,i));
+          img.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' ') openImgModal(imgs,i); });
         });
         update();
       });
@@ -111,6 +113,10 @@
     const imgModal=document.getElementById('imgModal');
     const imgModalImg=document.getElementById('imgModalImg');
     const imgModalClose=document.getElementById('imgModalClose');
+    const imgModalPrev=document.getElementById('imgModalPrev');
+    const imgModalNext=document.getElementById('imgModalNext');
+    let imgModalImgs=[];
+    let imgModalIdx=0;
     function openModal(idx){
       const tmpl=document.getElementById('pet-detail-'+idx);
       if(!tmpl) return;
@@ -129,9 +135,19 @@
     closeBtn.addEventListener('click',closeModal);
     modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
 
-    function openImgModal(src,alt=''){
-      imgModalImg.src=src;
-      imgModalImg.alt=alt;
+    function showImgModal(){
+      const img=imgModalImgs[imgModalIdx];
+      if(!img) return;
+      imgModalImg.src=img.src;
+      imgModalImg.alt=img.alt||'';
+      const many=imgModalImgs.length>1;
+      imgModalPrev.style.display=many?'block':'none';
+      imgModalNext.style.display=many?'block':'none';
+    }
+    function openImgModal(imgs,idx){
+      imgModalImgs=[...imgs];
+      imgModalIdx=idx;
+      showImgModal();
       imgModal.classList.add('open');
       document.body.classList.add('no-scroll');
       imgModalClose.focus();
@@ -139,15 +155,31 @@
     function closeImgModal(){
       imgModal.classList.remove('open');
       imgModalImg.src='';
+      imgModalImgs=[];
       if(!modal.classList.contains('open')) document.body.classList.remove('no-scroll');
     }
+    function showPrev(){
+      if(imgModalImgs.length<2) return;
+      imgModalIdx=(imgModalIdx-1+imgModalImgs.length)%imgModalImgs.length;
+      showImgModal();
+    }
+    function showNext(){
+      if(imgModalImgs.length<2) return;
+      imgModalIdx=(imgModalIdx+1)%imgModalImgs.length;
+      showImgModal();
+    }
+    imgModalPrev.addEventListener('click',showPrev);
+    imgModalNext.addEventListener('click',showNext);
     imgModalClose.addEventListener('click',closeImgModal);
     imgModal.addEventListener('click',e=>{ if(e.target===imgModal||e.target===imgModalImg) closeImgModal(); });
 
     window.addEventListener('keydown',e=>{
-      if(e.key==='Escape'){
-        if(imgModal.classList.contains('open')) closeImgModal();
-        else if(modal.classList.contains('open')) closeModal();
+      if(imgModal.classList.contains('open')){
+        if(e.key==='Escape') closeImgModal();
+        else if(e.key==='ArrowLeft') showPrev();
+        else if(e.key==='ArrowRight') showNext();
+      }else if(modal.classList.contains('open') && e.key==='Escape'){
+        closeModal();
       }
     });
 
@@ -222,6 +254,10 @@
         const idx = card.dataset.index || card.querySelector('[data-open-detail]')?.dataset.index;
         if (idx) { e.preventDefault(); openModal(idx); }
       });
+    }
+
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('sw.js').catch(err=>console.error('SW registration failed',err));
     }
   </script>
 </body>
