@@ -534,4 +534,344 @@
     ],
     "id": 16
   }
+,
+
+{
+    "name": "Rocket",
+    "description": "Se rapa el lomo dejando la marca, se baña, se seca y se cepilla el pelaje. Se repasa el rape en el lomo , con la tijera se definen las patitas y se procede a la carita, recorte de bigotes y cejas",
+    "tools": [
+  "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/17_1.jpg",
+      "assets/17_2.jpg",
+      "assets/17_3.jpg",
+      "assets/17_4.jpg"
+     
+    ],
+    "id": 17
+  }
+,
+{
+    "name": "Mina",
+    "description": "Se baña , se seca y se cepilla el pelaje. Con las tijeras se define una marca en el lomo que servirá de guía para el resto del cuerpo, se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/18_1.jpg",
+      "assets/18_2.jpg",
+      "assets/18_3.jpg",
+      "assets/18_4.jpg"
+    ],
+    "id": 18
+  }
+,
+
+{
+    "name": "Mia",
+    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibia shampo y acondicionador. Se seca de primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio",
+"Tintes de varios colores",
+"Recipiente",
+"Pinceles",
+"Papel periódico",
+"Papel aluminio"
+    ],
+    "extras": [
+      "assets/19_1.jpg",
+      "assets/19_2.jpg",
+      "assets/19_3.jpg",
+      "assets/19_4.jpg"
+      
+    ],
+    "id": 19
+  }
+,
+{
+    "name": "Luna",
+    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibio shampo ya acondicionador. Se seca de primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio",
+"Tintes de varios colores",
+"Recipiente",
+"Pinceles",
+"Papel periódico",
+"Papel aluminio"
+    ],
+    "extras": [
+      "assets/16_1.jpg",
+      "assets/16_2.jpg",
+      "assets/16_3.jpg",
+      "assets/16_4.jpg",
+      "assets/16_5.jpg"
+    ],
+    "id": 20
+  }
+,
+
+
+{
+    "name": "Blanquita",
+    "description":"Se rapa todo el cuerpo dejando la cabecita sin corte, se baña, se seca y cepilla. Se repasa el rape y depejan los ojitos, se redondea el copete.",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/16_1.jpg",
+      "assets/16_2.jpg",
+      "assets/16_3.jpg",
+      "assets/16_4.jpg",
+      "assets/16_5.jpg"
+    ],
+    "id": 21
+  }
+,
+
+
+{
+    "name": "Rocket ",
+    "description":"Se rapa el lomo dejando la marca, se baña, se seca y se cepilla el pelaje. Se repasa el rape en el lomo , con la tijera se definen las patitas y se procede a la carita, recorte de bogotes y cejas.",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/22_1.jpg",
+      "assets/22_2.jpg",
+      "assets/22_3.jpg",
+      "assets/22_4.jpg"
+      
+    ],
+    "id": 22
+  }
+,
+
+
+{
+    "name": "Trebol ",
+    "description":"Se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando en varias partes del lomo simulando manchitas de colores, y se finaliza con el contorno en las manchas de color negro, para hacer un print. Se deja reposar el tinte por 30 minutos y se procede a lavar con agua fría en el lomo , y el resto del cuerpo con agua tibia shampo y a condicionador. Se seca de primero el lomo y  luego el resto del cuerpo -Se repasa la maquina sobre  del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "tools": [
+ "Herramientas",
+"Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio",
+"Tintes de varios colores",
+"Recipiente",
+"Pinceles",
+"Papel periódico",
+"Papel aluminio"
+    ],
+    "extras": [
+      "assets/23_1.jpg",
+      "assets/23_2.jpg",
+      "assets/23_3.jpg"
+     
+    ],
+    "id": 23
+  }
+,
+
+
+
+{
+    "name": "Luffy ",
+    "description":"Se rapan las orejitas, se peina para quitar nudos, se baña, se seca y se cepilla. Con una tijera en el lomo se busca la mecha guía y se define el tamaño del corte, luego se procede con las patitas y se despeja la carita, se define el copete redondo",
+    "tools": [
+ "Shampoo matizante",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/24_1.jpg",
+      "assets/24_2.jpg",
+      "assets/24_3.jpg",
+      "assets/24_4.jpg",
+      "assets/24_5.jpg"
+    ],
+    "id": 24
+  }
+,
+{
+    "name": "Max ",
+    "description":"Se rapa el lomo, se baña, se seca y se cepilla. Se repasa el lomo con la maquina y se dejan las patitas con pelo largo, se repasa con tijera definiéndolas. El corte debe ser exagerado, no se difumina , se despeja la mirada y se redondera el copete.",
+    "tools": [
+"Shampoo",
+"Acondicionador",
+"Keratina",
+"Paño",
+"Sopladora",
+"Secadora",
+"Cortador de uñas",
+"Pinza hemostática",
+"Talco hemostático",
+"Algodón",
+"Limpiador de oídos",
+"Cepillo",
+"Peine",
+"Máquina de despeje",
+"Maquina y Cuchillas",
+"Spray enfriador",
+"Tijeras",
+"Bálsamo",
+"Perfume",
+"Accesorio"
+    ],
+    "extras": [
+      "assets/25_1.jpg",
+      "assets/25_2.jpg",
+      "assets/25_3.jpg",
+      "assets/25_4.jpg"
+  
+    ],
+    "id": 25
+  }
 ]
