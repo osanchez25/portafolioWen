@@ -1,8 +1,8 @@
 [
   {
     "name": "Chispita",
-    "description": "Se envuelve en un pañito las hierbas y el alpiste sujetando con pabilo, se calienta en el microondas por 3 min , se pasa sobre el perro haciéndole un ligero masaje por todo el cuerpo . Esta técnica ayuda al perro a relajarse y libera el estrés.\nSi se quiere reutilizar, se calienta por 1 min",
-    "title": "Spa relajante con aromaterapia",
+    "description": "Se envuelve en un pañito las hierbas y el alpiste sujetando con pabilo, se calienta en el microondas por 3 min , se pasa sobre el lomo del perro haciéndole un ligero masaje por todo el cuerpo . Esta técnica ayuda al perro a relajarse y liberar el estrés.\n Si se quiere reutilizar, se calienta por 1 min",
+    "title": "Spa Relajante con Aromaterapia",
     "tools": [
       "Shampoo",
       "Acondicionador",
@@ -167,7 +167,7 @@
   },
   {
     "name": "Besitos",
-    "description": "Se tiñeron algunas partes del pelo del perro, se realizaron corazones con negro y una ves hechos se coloca el tinte en color y se rellena, en este caso no se coloca papel aluminio, se pueden realizar distintas formas, manchas , rayas de colores en tinte, se deja actuar por 40 min .",
+    "description": "Se tiñeron algunas partes del pelo del perro, se realizaron corazones con negro y una vez hechos se coloca el tinte en color y se rellena, en este caso no se coloca papel aluminio, se pueden realizar distintas formas, manchas , rayas de colores en tinte, se deja actuar por 40 min .",
     "title": "Tinte Creativo  ",
     "tools": [
       "Shampoo",
@@ -228,7 +228,7 @@
   },
   {
     "name": "Lucky",
-    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavado, secado y cepillado de la cabeza, se repasa con la maquina el rape de todo el cuerpo y se define la carita de osito.",
+    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavar, secar y cepillar , se repasa con la maquina el rape en todo el cuerpo y se define la carita de osito revisando por varios angulos que vaya quedando redonda la cabecita .",
     "title": "Rapado y Corte de Carita Osito  ",
     "tools": [
       "Shampoo Matizante",
@@ -245,7 +245,7 @@
       "Cepillo",
       "Peine",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Tijeras",
       "Bálsamo",
       "Perfume",
@@ -261,7 +261,7 @@
   },
   {
     "name": "Ziom",
-    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavado, secado y cepillado de la cabeza, se repasa con la maquina el rape de todo el cuerpo y se define la carita de osito.",
+    "description": "Se realiza un pre corte rapando el cuerpo del perro, se lleva a lavar, secar y cepillar cuerpo y cabeza, se repasa con la maquina el rape de todo el cuerpo y se define la carita de osito.",
     "title": "Practica de Rapado y Corte de Carita Osito  ",
     "tools": [
       "Shampoo Matizante",
@@ -278,7 +278,7 @@
       "Cepillo",
       "Peine",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Tijeras",
       "Bozal",
       "Bálsamo",
@@ -311,7 +311,7 @@
       "Limpiador de oídos",
       "Cepillo",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Spray Enfriador",
       "Bálsamo",
       "Perfume",
@@ -344,7 +344,7 @@
       "Cepillo",
       "Peine",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Spray Enfriador",
       "Tijeras",
       "Bálsamo",
@@ -381,7 +381,7 @@
       "Cepillo",
       "Peine",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Spray Enfriador",
       "Tijeras",
       "Bálsamo",
@@ -416,7 +416,7 @@
       "Cepillo",
       "Peine",
       "Máquina de despeje",
-      "Maquina y cuchillas",
+      "Máquina y cuchillas",
       "Spray Enfriador",
       "Tijeras",
       "Bálsamo",
@@ -434,8 +434,8 @@
   },
   {
     "name": "Kiara",
-    "description": "Se baña, seca y se cepilla el pelaje del perro, únicamente utilizando tijera se realizan las marcas con que se definirá el tamaño del corte a realizar, esa guía se inicia en el lomo y posteriormente esa medida se lleva a todo el cuerpo y patas.",
-    "title": "Trabajo en Tijeras Corte Cara de Osito",
+    "description": "Se baña, se seca y se cepilla el pelaje del perro, únicamente utilizando tijera se realizan las marcas con que se definirá el tamaño del corte a realizar, esa guía se inicia en el lomo y posteriormente esa medida se lleva a todo el cuerpo y patas.",
+    "title": "Trabajo en Tijeras Corte Cara de Oso",
     "tools": [
       "Shampoo",
       "Acondicionador",
@@ -466,7 +466,7 @@
   },
   {
     "name": "Nala",
-    "description": "Se realiza un pre corte rapando el lomo del perro, se baña, seca y se cepilla el pelaje.\nSe repasa el rape del lomo y con tijeras se corta el pelo de las patas, las orejas se recortan los sobrantes, se recortan las cejas y el bigote.\nPara bajar el volumen del bigote se utiliza la tijera de entresacar.",
+    "description": "Se realiza un pre corte rapando el lomo del perro, se baña, se seca y se cepilla el pelaje.\nSe repasa el rape del lomo y con tijeras se corta el pelo de las patas, las orejas se recortan los sobrantes, se recortan las cejas y el bigote.\nPara bajar el volumen del bigote se utiliza la tijera de entresacar.",
     "title": "Repaso Corte Schnauzer",
     "tools": [
       "Shampoo matizante",
@@ -484,7 +484,7 @@
       "Peine",
       "Máquina de despeje",
       "Maquina y Cuchillas",
-      "Spary enfriado",
+      "Spray enfriador",
       "Tijeras",
       "Bálsamo",
       "Perfume",
@@ -501,7 +501,7 @@
   {
     "name": "Trebol",
     "description": "Se baña, se seca y se cepilla el pelaje.\nCon tijeras se define la marca en el lomo con la medida del largo del pelo que se va a seguir, si no tiene mucho pelaje se corta con tijera la florcilla , cuando se haya definido el lomo , se avanza a las patitas siguiendo el mismo tamaño , se redondean las patitas , en la cara se despejan los lagrimales, se limpia la caña del medio de los ojos y la nariz, se va redondeando la carita , para el corte tanto del cuerpo como de la cara se utiliza el efecto espejo.",
-    "title": "Practica Poodle ",
+    "title": "Práctica Poodle ",
     "tools": [
       "Shampoo matizante",
       "Acondicionador",
@@ -518,8 +518,8 @@
       "Peine",
       "Uña de gato",
       "Máquina de despeje",
-      "Maquina y Cuchillas",
-      "Spary enfriado",
+      "Máquina y Cuchillas",
+      "Spray enfriador",
       "Tijeras",
       "Bálsamo",
       "Perfume",
@@ -539,6 +539,7 @@
 {
     "name": "Rocket",
     "description": "Se rapa el lomo dejando la marca, se baña, se seca y se cepilla el pelaje. Se repasa el rape en el lomo , con la tijera se definen las patitas y se procede a la carita, recorte de bigotes y cejas",
+"title": "Practica Schnauzer ",
     "tools": [
   "Shampoo matizante",
 "Acondicionador",
@@ -554,7 +555,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
@@ -574,6 +575,7 @@
 {
     "name": "Mina",
     "description": "Se baña , se seca y se cepilla el pelaje. Con las tijeras se define una marca en el lomo que servirá de guía para el resto del cuerpo, se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+"title": "Practica Poodle ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -607,8 +609,9 @@
 ,
 
 {
-    "name": "Mia",
-    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibia shampo y acondicionador. Se seca de primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "name": "Mía",
+    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta de papel aluminio , con pinceles diferentes se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibia shampoo y acondicionador. Se seca primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+"title": "Creativo- Corte Deportivo ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -648,7 +651,8 @@
 ,
 {
     "name": "Luna",
-    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibio shampo ya acondicionador. Se seca de primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "description":"Se rapa el lomo, y para el tinte se colocan los colores en una paleta de papel aluminio , con pinceles diferente se va colocando por mechones cada color envolviéndolos luego en papel aluminio, después de 30 minutos se procede a lavar con agua fría la cola , y el resto del cuerpo con agua tibia, se coloca el shampo y el acondicionador. Se seca de primero la colita y luego el resto del cuerpo - Se repasa el rape del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+"title": "Creativo Tinte Colita ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -664,7 +668,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
@@ -687,10 +691,10 @@
   }
 ,
 
-
 {
     "name": "Blanquita",
-    "description":"Se rapa todo el cuerpo dejando la cabecita sin corte, se baña, se seca y cepilla. Se repasa el rape y depejan los ojitos, se redondea el copete.",
+    "description":"Se rapa todo el cuerpo dejando la cabecita con el pelo largo, se baña, se seca y cepilla. Se repasa el rape y se depejan los ojitos, se redondea el copete.",
+"title": "Practica Rape con Copete ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -706,7 +710,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
@@ -724,10 +728,10 @@
   }
 ,
 
-
 {
     "name": "Rocket ",
-    "description":"Se rapa el lomo dejando la marca, se baña, se seca y se cepilla el pelaje. Se repasa el rape en el lomo , con la tijera se definen las patitas y se procede a la carita, recorte de bogotes y cejas.",
+    "description":"Se rapa el lomo dejando la marca, se baña, se seca y se cepilla el pelaje. Se repasa el rape en el lomo , con la tijera se definen las patitas y se procede a la carita, recorte de bogotes y cejas. Tambien con las tijeras de definen las orillas de la oreja quitando el excedente de pelo",
+"title": "Practica Schnauzer 2 ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -743,7 +747,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
@@ -761,10 +765,10 @@
   }
 ,
 
-
 {
     "name": "Trebol ",
-    "description":"Se colocan los colores en una paleta echa de papel aluminio , con pinceles diferente se va colocando en varias partes del lomo simulando manchitas de colores, y se finaliza con el contorno en las manchas de color negro, para hacer un print. Se deja reposar el tinte por 30 minutos y se procede a lavar con agua fría en el lomo , y el resto del cuerpo con agua tibia shampo y a condicionador. Se seca de primero el lomo y  luego el resto del cuerpo -Se repasa la maquina sobre  del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+    "description":"Se colocan los colores en una paleta de papel aluminio , con pinceles diferentes se va colocando en varias partes del lomo simulando manchitas de colores, y se finaliza con el contorno de las manchas de color negro, para hacer un print. Se deja reposar el tinte por 30 minutos y se procede a lavar con agua fría en el lomo , y el resto del cuerpo con agua tibia shampo y a condicionador. Se seca de primero el lomo y  luego el resto del cuerpo -Se repasa la maquina sobre  del lomo y con las tijeras se definen las patitas, la colita y la carita, se redondea dejando la carita de osito, con el copete y orejitas.",
+"title": "Creativo Tinte Lomo",
     "tools": [
  "Herramientas",
 "Shampoo matizante",
@@ -781,7 +785,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
@@ -803,11 +807,10 @@
   }
 ,
 
-
-
 {
     "name": "Luffy ",
-    "description":"Se rapan las orejitas, se peina para quitar nudos, se baña, se seca y se cepilla. Con una tijera en el lomo se busca la mecha guía y se define el tamaño del corte, luego se procede con las patitas y se despeja la carita, se define el copete redondo",
+    "description":"Se rapan las orejitas, se peina para quitar nudos, se baña, se seca y se cepilla. Con una tijera en el lomo se busca la mecha guía y se define el tamaño del corte, luego se procede con las patitas y se despeja la carita, se define el copete redondo revisando desde varios angulos que quede parejo ",
+"title": "Repaso Corte Oso ",
     "tools": [
  "Shampoo matizante",
 "Acondicionador",
@@ -842,7 +845,8 @@
 ,
 {
     "name": "Max ",
-    "description":"Se rapa el lomo, se baña, se seca y se cepilla. Se repasa el lomo con la maquina y se dejan las patitas con pelo largo, se repasa con tijera definiéndolas. El corte debe ser exagerado, no se difumina , se despeja la mirada y se redondera el copete.",
+    "description":"Se rapa el lomo, se baña, se seca y se cepilla. Se repasa el lomo con la maquina y se dejan las patitas con pelo largo, se repasa con tijera definiéndolas. El corte debe ser exagerado con alto volumen de pelo para que se aprecie el corte deportivo, no se difumina , se despeja la mirada y se redondera el copete revisando desde varios angulos las medidas para que quede parejo.",
+"title": "Repaso Corte Deportivo ",
     "tools": [
 "Shampoo",
 "Acondicionador",
@@ -858,7 +862,7 @@
 "Cepillo",
 "Peine",
 "Máquina de despeje",
-"Maquina y Cuchillas",
+"Máquina y Cuchillas",
 "Spray enfriador",
 "Tijeras",
 "Bálsamo",
