@@ -254,6 +254,23 @@
         const idx = card.dataset.index || card.querySelector('[data-open-detail]')?.dataset.index;
         if (idx) { e.preventDefault(); openModal(idx); }
       });
+
+      /* Hardcoded dedication card for Yuli */
+      const dedicationCard = document.createElement('article');
+      dedicationCard.className = 'card dedication-card';
+      dedicationCard.innerHTML = `
+        <div class="card-header">
+          <h3 class="card-title">Dedicación Especial</h3>
+          <div class="card-proc">Agradecimiento</div>
+        </div>
+        <div class="thumb" aria-label="Foto de Yuli">
+          <img src="assets/yuli.jpg" alt="Yuli" loading="lazy" style="object-position: center 50%;">
+        </div>
+        <div class="dedication-text">
+          A Yuli por su dedicación y trabajo en equipo, cualidades que hicieron posible este proyecto.
+        </div>
+      `;
+      grid.appendChild(dedicationCard);
     }
 
     if('serviceWorker' in navigator){

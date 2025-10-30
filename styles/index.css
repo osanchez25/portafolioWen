@@ -68,6 +68,25 @@ h1{margin:0;font:800 28px/1.1 Poppins,Inter,sans-serif;letter-spacing:.2px}
   position:absolute; inset:0; display:block; z-index:5;
 }
 
+/* Dedication card */
+.dedication-card {
+  cursor: default !important;
+}
+.dedication-card:hover {
+  transform: none !important;
+}
+.dedication-text {
+  padding: 18px 16px 20px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #e9eef7;
+  font-style: italic;
+  background: linear-gradient(135deg, rgba(0,98,168,.15), rgba(224,30,141,.15));
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
 /* Modal chrome */
 .modal{position:fixed;inset:0;display:none;place-items:center;padding:28px;z-index:40}
 .modal.open{display:grid}
