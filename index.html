@@ -32,7 +32,7 @@
 
     <footer style="margin-top:48px;padding:24px 0;text-align:center;color:#A8B3C7">
       © <span id="year"></span> By Oscar Sanchez
-              <div style="margin-bottom:8px;font-size:0.95rem;color:#A8B3C7;opacity:0.8;">Versión 1.1.0</div>
+              <div style="margin-bottom:8px;font-size:0.95rem;color:#A8B3C7;opacity:0.8;">Versión 1.2.0</div>
 
     </footer>
   </div>
@@ -192,12 +192,31 @@
       const src=img.currentSrc||img.src;
       if(!src) return;
       const token=++imgModalLoadToken;
+      // Fade out
       imgModalImg.classList.add('loading');
+      // Wait for transition to finish (if already visible)
+      if(imgModalImg.src) {
+        await new Promise(res => {
+          imgModalImg.addEventListener('transitionend', res, {once:true});
+          // Force reflow for transition
+          imgModalImg.offsetWidth;
+          imgModalImg.style.opacity = 0;
+        });
+      }
       try{ await warmImage(img); }catch(e){ console.warn('No se pudo precargar la imagen',e); }
       if(token!==imgModalLoadToken) return;
       imgModalImg.src=src;
       imgModalImg.alt=img.alt||'';
-      imgModalImg.classList.remove('loading');
+      // Fade in after image loads
+      imgModalImg.onload = () => {
+        imgModalImg.classList.remove('loading');
+        imgModalImg.style.opacity = 1;
+      };
+      // If already loaded, trigger fade in
+      if(imgModalImg.complete && imgModalImg.naturalWidth>0) {
+        imgModalImg.classList.remove('loading');
+        imgModalImg.style.opacity = 1;
+      }
       const many=imgModalImgs.length>1;
       imgModalPrev.style.display=many?'block':'none';
       imgModalNext.style.display=many?'block':'none';

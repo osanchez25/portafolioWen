@@ -135,8 +135,8 @@ h1{margin:0;font:800 28px/1.1 Poppins,Inter,sans-serif;letter-spacing:.2px}
 /* Modal de imagen completa */
 .img-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:50;padding:20px;}
 .img-modal.open{display:flex;}
-.img-modal img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-out;opacity:1;transition:opacity .18s ease,filter .18s ease;}
-.img-modal img.loading{opacity:.35;filter:blur(1.5px);}
+.img-modal img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-out;opacity:1;transition:opacity .35s cubic-bezier(.4,0,.2,1);}
+.img-modal img.loading{opacity:0;}
 .img-modal-close{position:absolute;top:18px;right:18px;background:rgba(0,0,0,.5);color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:1.2rem;cursor:pointer;}
 .img-modal-close:focus{box-shadow:var(--ring);outline:none}
 .img-modal-prev,.img-modal-next{
