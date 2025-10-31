@@ -188,6 +188,13 @@
       .then(pets=>renderPets(pets))
       .catch(err=>console.error('Error cargando pets.json',err));
 
+    function getImagePath(path) {
+      // Try lowercase extension first
+      const lowerPath = path.replace(/\.(jpg|jpeg|png)$/i, match => match.toLowerCase());
+      // Optionally, you could check if the file exists using fetch or by trying to load the image
+      return lowerPath;
+    }
+
     function renderPets(pets){
       pets.sort((a,b)=>(a.id ?? 0)-(b.id ?? 0));
       const grid=document.getElementById('cardsGrid');
@@ -197,7 +204,7 @@
         const card=document.createElement('article');
         card.className='card';
         card.dataset.index=index;
-        const images=(p.extras||[]).filter(Boolean);
+        const images=(p.extras||[]).filter(Boolean).map(getImagePath);
         card.innerHTML = `
           <div class="card-header">
             <h3 class="card-title">${p.title || 'Sin título'}</h3>
