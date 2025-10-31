@@ -188,13 +188,6 @@
       .then(pets=>renderPets(pets))
       .catch(err=>console.error('Error cargando pets.json',err));
 
-    function getImagePath(path) {
-      // Try lowercase extension first
-      const lowerPath = path.replace(/\.(jpg|jpeg|png)$/i, match => match.toLowerCase());
-      // Optionally, you could check if the file exists using fetch or by trying to load the image
-      return lowerPath;
-    }
-
     function renderPets(pets){
       pets.sort((a,b)=>(a.id ?? 0)-(b.id ?? 0));
       const grid=document.getElementById('cardsGrid');
@@ -204,54 +197,65 @@
         const card=document.createElement('article');
         card.className='card';
         card.dataset.index=index;
-        const images=(p.extras||[]).filter(Boolean).map(getImagePath);
-        card.innerHTML = `
-          <div class="card-header">
-            <h3 class="card-title">${p.title || 'Sin título'}</h3>
-            <div class="card-proc">${p.name || 'Sin nombre'}</div>
-          </div>
-          <div class="thumb" aria-label="Vista previa de ${p.name}">
-            <img src="${images[0]||''}" alt="${p.name}" loading="lazy">
-          </div>
-          <a href="#" class="open-detail" data-open-detail data-index="${index}" aria-label="Ver detalle de ${p.name}" tabindex="0"></a>
-        `;
-        grid.appendChild(card);
+          const images=(p.extras||[]).filter(Boolean);
+          // Create card
+          card.innerHTML = `
+            <div class="card-header">
+              <h3 class="card-title">${p.title || 'Sin título'}</h3>
+              <div class="card-proc">${p.name || 'Sin nombre'}</div>
+            </div>
+            <div class="thumb" aria-label="Vista previa de ${p.name}">
+              <img alt="${p.name}" loading="lazy">
+            </div>
+            <a href="#" class="open-detail" data-open-detail data-index="${index}" aria-label="Ver detalle de ${p.name}" tabindex="0"></a>
+          `;
+          grid.appendChild(card);
+          // Set image with fallback
+          const thumbImg = card.querySelector('.thumb img');
+          if (images[0]) setImageWithFallback(thumbImg, images[0]);
 
-        const tmpl=document.createElement('template');
-        tmpl.id='pet-detail-'+index;
-        tmpl.setAttribute('data-title', p.name||'Detalle');
-        const imgHtml=images.map(ph=>`<img src="${ph}" alt="Foto de ${p.name}" loading="lazy">`).join('');
-        tmpl.innerHTML=`
-          <div class="detail-grid">
-            <div>
-              <div class="carousel" data-carousel>
-                <button class="prev" aria-label="Foto anterior">‹</button>
-                <div class="track">${imgHtml}</div>
-                <button class="next" aria-label="Foto siguiente">›</button>
+          // Modal template
+          const tmpl=document.createElement('template');
+          tmpl.id='pet-detail-'+index;
+          tmpl.setAttribute('data-title', p.name||'Detalle');
+          // Create carousel images with fallback
+          const imgHtml=images.map(ph=>`<img alt="Foto de ${p.name}" loading="lazy">`).join('');
+          tmpl.innerHTML=`
+            <div class="detail-grid">
+              <div>
+                <div class="carousel" data-carousel>
+                  <button class="prev" aria-label="Foto anterior">‹</button>
+                  <div class="track">${imgHtml}</div>
+                  <button class="next" aria-label="Foto siguiente">›</button>
+                </div>
+              </div>
+              <div>
+                <div class="section-sub">Procedimiento</div>
+                <div class="text-block">${p.title || '—'}</div>
+
+                <div class="section-sub">Descripción</div>
+                <div class="text-block">${p.description||'—'}</div>
+
+                <div class="section-sub">Herramientas</div>
+                ${makeToolsBadges(p.tools)}
               </div>
             </div>
-            <div>
-              <div class="section-sub">Procedimiento</div>
-              <div class="text-block">${p.title || '—'}</div>
+          `;
+          document.body.appendChild(tmpl);
+          // Set fallback for modal images
+          const modalImgs = tmpl.content.querySelectorAll('.carousel img');
+          images.forEach((ph, idx) => {
+            if (modalImgs[idx]) setImageWithFallback(modalImgs[idx], ph);
+          });
 
-              <div class="section-sub">Descripción</div>
-              <div class="text-block">${p.description||'—'}</div>
-
-              <div class="section-sub">Herramientas</div>
-              ${makeToolsBadges(p.tools)}
-            </div>
-          </div>
-        `;
-        document.body.appendChild(tmpl);
-
-        /* Ajuste por-perro desde JSON (focusY: 0–100) */
-        const focusY = (p.focusY ?? 42);
-        card.querySelectorAll('.thumb img').forEach(img=>{
-          img.style.objectPosition = `center ${focusY}%`;
-        });
-        tmpl.content.querySelectorAll('.carousel img').forEach(img=>{
-          img.style.objectPosition = `center ${focusY}%`;
-        });
+          /* Ajuste por-perro desde JSON (focusY: 0–100) */
+          const focusY = (p.focusY ?? 42);
+          card.querySelectorAll('.thumb img').forEach(img=>{
+            img.style.objectPosition = `center ${focusY}%`;
+          });
+          tmpl.content.querySelectorAll('.carousel img').forEach(img=>{
+            img.style.objectPosition = `center ${focusY}%`;
+          });
       });
 
       /* Delegated click: hace clic en cualquier parte de la card */
@@ -278,6 +282,29 @@
         </div>
       `;
       grid.appendChild(dedicationCard);
+    }
+
+    function setImageWithFallback(imgElement, path) {
+      imgElement.src = path;
+      imgElement.onerror = function() {
+        // Try swapping extension case if not already tried
+        if (path.match(/\\.jpg$/i)) {
+          const altPath = path.replace(/\\.jpg$/i, '.JPG');
+          if (imgElement.src !== altPath) {
+            imgElement.src = altPath;
+          }
+        } else if (path.match(/\\.jpeg$/i)) {
+          const altPath = path.replace(/\\.jpeg$/i, '.JPEG');
+          if (imgElement.src !== altPath) {
+            imgElement.src = altPath;
+          }
+        } else if (path.match(/\\.png$/i)) {
+          const altPath = path.replace(/\\.png$/i, '.PNG');
+          if (imgElement.src !== altPath) {
+            imgElement.src = altPath;
+          }
+        }
+      };
     }
 
     if('serviceWorker' in navigator){
