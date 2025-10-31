@@ -88,15 +88,63 @@
       ?'<div class="tool-badges">'+tools.map(t=>`<span class="tool"><span class="i">${toolIcon(t)}</span>${t}</span>`).join('')+'</div>'
       :'';
 
+    const imageDecodeCache=new Map();
+    function warmImage(img){
+      if(!img) return Promise.resolve();
+      const src=img.currentSrc||img.src;
+      if(!src) return Promise.resolve();
+      if(img.complete && img.naturalWidth>0) return Promise.resolve();
+      if(imageDecodeCache.has(src)) return imageDecodeCache.get(src);
+      const promise=(img.decode?img.decode():new Promise((resolve,reject)=>{
+        if(img.complete && img.naturalWidth>0){ resolve(); return; }
+        const onLoad=()=>{cleanup();resolve();};
+        const onError=(err)=>{cleanup();imageDecodeCache.delete(src);reject(err);};
+        const cleanup=()=>{
+          img.removeEventListener('load',onLoad);
+          img.removeEventListener('error',onError);
+        };
+        img.addEventListener('load',onLoad,{once:true});
+        img.addEventListener('error',onError,{once:true});
+      }));
+      imageDecodeCache.set(src,promise.catch(()=>imageDecodeCache.delete(src)));
+      return promise;
+    }
+
+    function preloadNeighbors(imgs,index){
+      if(!imgs||!imgs.length) return;
+      const len=imgs.length;
+      const uniqueIndices=new Set();
+      uniqueIndices.add(index);
+      if(len>1) uniqueIndices.add((index+1)%len);
+      if(len>2) uniqueIndices.add((index-1+len)%len);
+      uniqueIndices.forEach(i=>{
+        const target=imgs[i];
+        if(!target) return;
+        if(target.loading==='lazy') target.loading='eager';
+        target.decoding='async';
+        warmImage(target).catch(()=>{});
+      });
+    }
+
     function wireCarousel(root){
       root.querySelectorAll('[data-carousel]').forEach(c=>{
         const track=c.querySelector('.track'), prev=c.querySelector('.prev'), next=c.querySelector('.next');
-        const imgs=track?track.querySelectorAll('img'):[];
+        const imgNodes=track?track.querySelectorAll('img'):[];
+        const imgs=[...imgNodes];
         if(!track||!prev||!next||imgs.length===0) return;
         let idx=0;
-        const update=()=>{ track.style.transform=`translateX(-${idx*100}%)`; };
-        prev.addEventListener('click',()=>{ idx=(idx-1+imgs.length)%imgs.length; update(); });
-        next.addEventListener('click',()=>{ idx=(idx+1)%imgs.length; update(); });
+        imgs.forEach((img,i)=>{
+          if(i===0) img.loading='eager';
+          img.decoding='async';
+        });
+        const update=()=>{
+          track.style.transform=`translateX(-${idx*100}%)`;
+          preloadNeighbors(imgs,idx);
+        };
+        const goPrev=()=>{ idx=(idx-1+imgs.length)%imgs.length; update(); };
+        const goNext=()=>{ idx=(idx+1)%imgs.length; update(); };
+        prev.addEventListener('click',goPrev);
+        next.addEventListener('click',goNext);
         imgs.forEach((img,i)=>{
           img.tabIndex=0;
           img.setAttribute('role','button');
@@ -119,6 +167,7 @@
     const imgModalNext=document.getElementById('imgModalNext');
     let imgModalImgs=[];
     let imgModalIdx=0;
+    let imgModalLoadToken=0;
     function openModal(idx){
       const tmpl=document.getElementById('pet-detail-'+idx);
       if(!tmpl) return;
@@ -137,14 +186,22 @@
     closeBtn.addEventListener('click',closeModal);
     modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
 
-    function showImgModal(){
+    async function showImgModal(){
       const img=imgModalImgs[imgModalIdx];
       if(!img) return;
-      imgModalImg.src=img.src;
+      const src=img.currentSrc||img.src;
+      if(!src) return;
+      const token=++imgModalLoadToken;
+      imgModalImg.classList.add('loading');
+      try{ await warmImage(img); }catch(e){ console.warn('No se pudo precargar la imagen',e); }
+      if(token!==imgModalLoadToken) return;
+      imgModalImg.src=src;
       imgModalImg.alt=img.alt||'';
+      imgModalImg.classList.remove('loading');
       const many=imgModalImgs.length>1;
       imgModalPrev.style.display=many?'block':'none';
       imgModalNext.style.display=many?'block':'none';
+      preloadNeighbors(imgModalImgs,imgModalIdx);
     }
     function openImgModal(imgs,idx){
       imgModalImgs=[...imgs];
@@ -157,7 +214,9 @@
     function closeImgModal(){
       imgModal.classList.remove('open');
       imgModalImg.src='';
+      imgModalImg.classList.remove('loading');
       imgModalImgs=[];
+      imgModalLoadToken++;
       if(!modal.classList.contains('open')) document.body.classList.remove('no-scroll');
     }
     function showPrev(){
