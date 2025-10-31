@@ -168,6 +168,7 @@
     let imgModalImgs=[];
     let imgModalIdx=0;
     let imgModalLoadToken=0;
+    let imgModalLastIdx=0;
     function openModal(idx){
       const tmpl=document.getElementById('pet-detail-'+idx);
       if(!tmpl) return;
@@ -186,35 +187,47 @@
     closeBtn.addEventListener('click',closeModal);
     modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
 
-    async function showImgModal(){
+    async function showImgModal(isFirstImage = false){
       const img=imgModalImgs[imgModalIdx];
       if(!img) return;
       const src=img.currentSrc||img.src;
       if(!src) return;
       const token=++imgModalLoadToken;
-      // Fade out
-      imgModalImg.classList.add('loading');
-      // Wait for transition to finish (if already visible)
-      if(imgModalImg.src) {
+      // Determine direction
+      let direction = '';
+      if (imgModalIdx > imgModalLastIdx) direction = 'slide-right';
+      else if (imgModalIdx < imgModalLastIdx) direction = 'slide-left';
+      imgModalLastIdx = imgModalIdx;
+
+      // Slide out old image (skip if this is the first image of a newly opened modal)
+      if(imgModalImg.src && !isFirstImage && direction) {
+        imgModalImg.classList.remove('slide-in');
+        imgModalImg.classList.add(direction);
         await new Promise(res => {
           imgModalImg.addEventListener('transitionend', res, {once:true});
           // Force reflow for transition
           imgModalImg.offsetWidth;
-          imgModalImg.style.opacity = 0;
         });
+        imgModalImg.classList.remove('slide-left','slide-right');
       }
+
       try{ await warmImage(img); }catch(e){ console.warn('No se pudo precargar la imagen',e); }
       if(token!==imgModalLoadToken) return;
-      imgModalImg.src=src;
-      imgModalImg.alt=img.alt||'';
-      // Fade in after image loads
+      // Reset onload handler to avoid stacking
+      imgModalImg.onload = null;
+      imgModalImg.src = src;
+      imgModalImg.alt = img.alt || '';
+      // Slide in new image
+      imgModalImg.classList.add('slide-in');
       imgModalImg.onload = () => {
         imgModalImg.classList.remove('loading');
+        imgModalImg.classList.add('slide-in');
         imgModalImg.style.opacity = 1;
       };
-      // If already loaded, trigger fade in
-      if(imgModalImg.complete && imgModalImg.naturalWidth>0) {
+      // If already loaded (from cache), trigger slide in immediately
+      if (imgModalImg.complete && imgModalImg.naturalWidth > 0) {
         imgModalImg.classList.remove('loading');
+        imgModalImg.classList.add('slide-in');
         imgModalImg.style.opacity = 1;
       }
       const many=imgModalImgs.length>1;
@@ -223,20 +236,31 @@
       preloadNeighbors(imgModalImgs,imgModalIdx);
     }
     function openImgModal(imgs,idx){
-      imgModalImgs=[...imgs];
-      imgModalIdx=idx;
-      showImgModal();
-      imgModal.classList.add('open');
-      document.body.classList.add('no-scroll');
-      imgModalClose.focus();
+  // Reset modal image state before opening new modal
+  imgModalImg.onload = null;
+  imgModalImg.src = ''; // Clear old image to prevent conflicts
+  imgModalImg.alt = '';
+  imgModalImg.classList.remove('loading','slide-left','slide-right','slide-in');
+  imgModalImg.style.opacity = 1;
+  imgModalImgs=[...imgs];
+  imgModalIdx=idx;
+  imgModalLastIdx=idx; // Reset last index so no slide on first open
+  showImgModal(true); // Pass true to indicate this is the first image of a new modal
+  imgModal.classList.add('open');
+  document.body.classList.add('no-scroll');
+  imgModalClose.focus();
     }
     function closeImgModal(){
-      imgModal.classList.remove('open');
-      imgModalImg.src='';
-      imgModalImg.classList.remove('loading');
-      imgModalImgs=[];
-      imgModalLoadToken++;
-      if(!modal.classList.contains('open')) document.body.classList.remove('no-scroll');
+  imgModal.classList.remove('open');
+  // Fully reset modal image state
+  imgModalImg.onload = null;
+  imgModalImg.src = '';
+  imgModalImg.alt = '';
+  imgModalImg.classList.remove('loading','slide-left','slide-right','slide-in');
+  imgModalImg.style.opacity = 1;
+  imgModalImgs = [];
+  imgModalLoadToken++;
+  if(!modal.classList.contains('open')) document.body.classList.remove('no-scroll');
     }
     function showPrev(){
       if(imgModalImgs.length<2) return;
