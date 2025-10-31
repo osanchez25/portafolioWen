@@ -244,8 +244,8 @@
   imgModalLastIdx=idx; // Reset last index so no slide on first open
   // Set navigation button visibility once when modal opens
   const many=imgModalImgs.length>1;
-  imgModalPrev.style.display=many?'block':'none';
-  imgModalNext.style.display=many?'block':'none';
+  imgModalPrev.style.display=many?'':'none';
+  imgModalNext.style.display=many?'':'none';
   showImgModal(true); // Pass true to indicate this is the first image of a new modal
   imgModal.classList.add('open');
   document.body.classList.add('no-scroll');
